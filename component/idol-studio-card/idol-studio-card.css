@@ -1,0 +1,10 @@
+/* 虚拟偶像工作室的名片 */
+.card-list{
+    float: left;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+.card-list :hover{
+    text-decoration: none;
+    color: aqua;
+}

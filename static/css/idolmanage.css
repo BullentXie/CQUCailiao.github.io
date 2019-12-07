@@ -1,0 +1,686 @@
+body{
+    overflow: hidden;
+}
+
+#tf-main{
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    width:100%;
+}
+
+.nav-left{
+    /* opacity: 0.9; */
+    width:12%;
+    height:100vh;
+    box-shadow: 1px 0 0px #ccc;
+    background-color:#fff;
+    z-index: 2;
+    /* overflow-y: scroll; */
+}
+
+.content-right{
+    width:88%;
+    height:100vh;
+    overflow-y: scroll;
+}
+
+.nav-left::-webkit-scrollbar {
+    width: 10px;    
+    height: 8px;
+}
+.nav-left::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background-color: #1499ed;
+    background-image: -webkit-linear-gradient(45deg, rgba(255, 255, 255, .2) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .2) 50%, rgba(255, 255, 255, .2) 75%, transparent 75%, transparent);
+}
+
+
+.content-right::-webkit-scrollbar {/*滚动条整体样式*/
+    width: 10px;     /*高宽分别对应横竖滚动条的尺寸*/
+    height: 8px;
+}
+.content-right::-webkit-scrollbar-thumb {/*滚动条里面小方块*/
+    border-radius: 10px;
+    background-color: #1499ed;
+    background-image: -webkit-linear-gradient(45deg, rgba(255, 255, 255, .2) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .2) 50%, rgba(255, 255, 255, .2) 75%, transparent 75%, transparent);
+}
+.content-right::-webkit-scrollbar-track {/*滚动条里面轨道*/
+    box-shadow: inset 0 0 5px rgba(0,0,0,0.2);
+    border-radius: 10px;
+    background: #EDEDED;
+}
+
+/***************************** 左侧导航栏 偶像信息 ***************************/
+.idol-info{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width:100%;
+    margin-top:20px;
+}
+
+.idol-profile{
+    position: relative;
+    top:0;
+    width:55%;
+    border-radius: 50%;
+    display: block;
+}
+.idol-profile img{
+    display: block;
+    width:100%;
+    border-radius: 50%;
+}
+
+.idol-img-black-overlay{
+    position: absolute;
+    top:0;
+    width:100%;
+    height:100%;
+    background-color:#000;
+    border-radius: 50%;
+    opacity: 0.85;
+    
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color:#fff;
+}
+
+/* 上传作品的按钮 */
+.upload-works{
+    margin-top:20px;
+    padding:5px 18px 5px 18px;
+    font-size: 18px;
+    background-color:#1499ed;
+    border-radius: 5px;
+    color:#fff;
+    text-decoration: none;
+}
+.upload-works:hover{
+    color:#fff;
+    text-decoration: none;
+}
+
+/* 左侧导航列表 */
+.nav-left-wrap{
+    margin-top:20px;
+    padding:5px 0px 5px 0px;
+}
+.nav-left-item{
+    display: block;
+    text-align: center;
+    font-size: 17px;
+    padding:10px 0 10px 0;
+    color:#505050;
+}
+.left-item-on{
+    background-color:#1499ed;
+    color:#fff;
+    text-decoration: none;
+}
+
+.nav-left-item:hover{
+    background-color:#1499ed;
+    color:#fff;
+    text-decoration: none;
+}
+
+
+/* 右侧内容 */
+.content-right-item{
+    display: none;
+}
+
+
+.browse-line-pic {
+    width: 100%;
+    background-color:#fff;
+    /* height: 500px; */
+}
+.browse-line-pic-canvas {
+    width: 100%;
+    height: 500px;
+    position: relative;
+    margin: 0 auto !important;
+    padding: 50px 0 10px 0;
+}
+
+.browse-line{
+    position: relative !important;
+    width: 100%;
+    height: 100%;
+    margin: 0 auto !important;
+    padding: 0 30px 0 30px !important;
+}
+
+
+
+
+/* 内容管理 */
+.link-top-container {
+    border-bottom: 1px solid #e7e7e7;
+    text-align: center;
+    background: #fff;
+    position: fixed;
+    top: 56px;
+    left: 0;
+    width: 100%;
+    z-index: 1;
+    white-space: nowrap;
+    padding-left: 209px;
+}
+.link-top-container a:hover {
+    text-decoration: none;
+}
+.link-top-container .link-top-item {
+    display: inline-block;
+    margin: 0 35px;
+    font-size: 14px;
+    width: 71px;
+    text-align: center;
+    min-width: 56px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    line-height: 48px;
+    border-bottom: 1px solid transparent;
+    color: #222;
+}
+.link-top-container .link-top-item.active {
+    border-bottom-color: #00a1d6;
+    color: #00a1d6;
+}
+
+
+/* 内容管理-顶栏切换效果 */
+.manage-bottom {
+    width: 100%;
+    /* height: 1500px; */
+    background-color: #fff;
+}
+
+.manage-hiden {
+    display: none !important;
+}
+/* 内容管理-占据顶格的位置 */
+.manage-bottom-sitting {
+    width: 100%;
+    height: 50px;
+}
+
+/* 内容管理-视频样式 */
+.manage-bottom-video {
+    display: flex;
+    width: 1000px;
+    height: 160px;
+    margin: 0 auto;
+    margin-top: 20px;
+    border-radius: 5px;
+    border:1px solid #ccc;
+    padding: 20px;
+}
+.manage-bottom-video-left {
+    display: flex;
+    width: 70%;
+    height: 100%;
+    justify-content: flex-start;
+}
+.manage-bottom-video-left-pic {
+    display: flex;
+    width: 28%;
+    overflow: hidden;
+    border-radius: 5px;
+    justify-content: flex-start;
+}
+.manage-bottom-video-left-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 72%;
+    /* background-color: #00a1d6; */
+    padding-left: 15px;
+}
+.manage-bottom-video-left-text-title {
+    overflow: hidden;
+    
+}
+.manage-bottom-video-left-text-title a{
+    font-weight: 600;
+    font-size: 20px;
+    word-break:keep-all;
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    color: #222;
+}
+.manage-bottom-video-left-text-title a:hover {
+    text-decoration: none;
+    color: #00a1d6;
+}
+.manage-bottom-video-left-text-time {
+    font-size: 15px;
+    margin-left: 4px;
+    word-break:keep-all;
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    color: #b6b6b6;
+}
+.manage-bottom-video-left-text-data {
+    display: flex;
+    font-size: 13px;
+    margin-left: 4px;
+    word-break:keep-all;
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    color: #b6b6b6;
+}
+.manage-bottom-video-left-text-data-play {
+    margin-right: 20px;
+}
+
+
+.manage-bottom-video-right {
+    display: flex;
+    width: 10%;
+    height: 100%;
+    justify-content: flex-end;
+    flex-direction: row;
+}
+.manage-bottom-video-right-btn {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* background-color: #00a1d6; */
+}
+.manage-bottom-video-right-btn a {
+    background-color: #fff;
+    font-size: 14px;
+    color:#222;
+    padding: 5px 20px;
+    border-radius: 5px;
+    border:1px solid #ccc;
+}
+.manage-bottom-video-right-btn a:hover {
+    text-decoration: none;
+    opacity: 0.8;
+}
+
+
+.manage-bottom-video-center {
+    display: flex;
+    width: 15%;
+    height: 100%;
+    justify-content: flex-end;
+    flex-direction: row;
+}
+.manage-bottom-video-center-btn {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* background-color: #00a1d6; */
+}
+.manage-bottom-video-center-btn a {
+    background-color: #00a1d6;
+    font-size: 14px;
+    color:white;
+    padding: 5px 20px;
+    border-radius: 5px;
+    border:1px solid #ccc;
+}
+.manage-bottom-video-center-btn a:hover{
+    text-decoration: none;
+    opacity: 0.8;
+}
+
+
+
+
+
+
+/* 内容管理-音频样式 */
+.manage-bottom-music {
+    display: flex;
+    width: 900px;
+    height: 160px;
+    margin: 0 auto;
+    margin-top: 20px;
+    border-radius: 5px;
+    border-bottom: 1px solid #ccc;
+    padding: 20px;
+}
+.manage-bottom-music-left {
+    display: flex;
+    width: 70%;
+    height: 100%;
+    justify-content: flex-start;
+}
+.manage-bottom-music-left-pic {
+    display: flex;
+    height: 108px;
+    width: 108px;
+    overflow: hidden;
+    border-radius: 5px;
+    justify-content: flex-start;
+    align-items: flex-end;
+    box-shadow: 10px 10px 10px #00a1d6;
+}
+.manage-bottom-music-left-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 72%;
+    /* background-color: #00a1d6; */
+    padding-left: 30px;
+}
+.manage-bottom-music-left-text-title {
+    overflow: hidden;
+    
+}
+.manage-bottom-music-left-text-title a{
+    font-weight: 400;
+    font-size: 18px;
+    word-break:keep-all;
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    color: #222;
+}
+.manage-bottom-music-left-text-title a:hover {
+    text-decoration: none;
+    color: #00a1d6;
+}
+.manage-bottom-music-left-text-label {
+    display: flex;
+    font-size: 15px;
+    margin-left: 4px;
+    word-break:keep-all;
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    color: rgb(126, 126, 126);
+}
+.label {
+    display: flex;
+    border-radius: 30px;
+    border:1px solid #ccc;
+    margin-right: 5px;
+    padding: 5px 15px 5px 15px;
+    font-size: 10px;
+}
+.manage-bottom-music-left-text-time {
+    font-size: 15px;
+    margin-left: 4px;
+    word-break:keep-all;
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    color: rgb(126, 126, 126);
+    font-size: 10px;
+}
+.manage-bottom-music-left-text-data {
+    display: flex;
+    font-size: 13px;
+    margin-left: 4px;
+    word-break:keep-all;
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    color: rgb(126, 126, 126);
+    font-size: 10px;
+}
+.manage-bottom-music-left-text-data-play {
+    margin-right: 20px;
+}
+
+
+.manage-bottom-music-right {
+    display: flex;
+    width: 10%;
+    height: 100%;
+    justify-content: flex-end;
+    flex-direction: row;
+}
+.manage-bottom-music-right-btn {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* background-color: #00a1d6; */
+}
+.manage-bottom-music-right-btn a {
+    background-color: #fff;
+    font-size: 14px;
+    color:#222;
+    padding: 5px 20px;
+    border-radius: 5px;
+    border:1px solid #ccc;
+}
+.manage-bottom-music-right-btn a:hover {
+    text-decoration: none;
+    opacity: 0.8;
+}
+
+
+.manage-bottom-music-center {
+    display: flex;
+    width: 15%;
+    height: 100%;
+    justify-content: flex-end;
+    flex-direction: row;
+}
+.manage-bottom-music-center-btn {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* background-color: #00a1d6; */
+}
+.manage-bottom-music-center-btn a {
+    background-color: #00a1d6;
+    font-size: 14px;
+    color:white;
+    padding: 5px 20px;
+    border-radius: 5px;
+    border:1px solid #ccc;
+}
+.manage-bottom-music-center-btn a:hover{
+    text-decoration: none;
+    opacity: 0.8;
+}
+
+
+
+
+
+/* 内容管理-轻小说 */
+.manage-bottom-novel {
+    display: flex;
+    width: 900px;
+    height: 180px;
+    margin: 0 auto;
+    margin-top: 20px;
+    border-radius: 5px;
+    /* border-bottom: 1px solid #ccc; */
+    padding: 20px;
+    background-color: #eeeeee;
+}
+.manage-bottom-novel-left {
+    display: flex;
+    width: 70%;
+    height: 100%;
+    justify-content: flex-start;
+}
+.manage-bottom-novel-left-pic {
+    display: flex;
+    height: 140px;
+    width: 108px;
+    overflow: hidden;
+    justify-content: flex-start;
+    align-items: flex-end;
+    /* box-shadow: 2px 2px 2px #fff; */
+}
+.manage-bottom-novel-left-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 72%;
+    /* background-color: #00a1d6; */
+    padding-left: 30px;
+}
+.manage-bottom-novel-left-text-title {
+    overflow: hidden;
+    
+}
+.manage-bottom-novel-left-text-title a{
+    font-weight: 400;
+    font-size: 18px;
+    word-break:keep-all;
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    color: #222;
+}
+.manage-bottom-novel-left-text-title a:hover {
+    text-decoration: none;
+    color: #00a1d6;
+}
+.manage-bottom-novel-left-text-label {
+    display: flex;
+    font-size: 15px;
+    margin-left: 4px;
+    word-break:keep-all;
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    color: rgb(126, 126, 126);
+}
+.label {
+    display: flex;
+    border-radius: 30px;
+    border:1px solid #ccc;
+    margin-right: 5px;
+    padding: 5px 15px 5px 15px;
+    font-size: 10px;
+}
+.manage-bottom-novel-left-text-time {
+    font-size: 15px;
+    margin-left: 4px;
+    word-break:keep-all;
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    color: rgb(126, 126, 126);
+    font-size: 10px;
+}
+.manage-bottom-novel-left-text-data {
+    display: flex;
+    font-size: 13px;
+    margin-left: 4px;
+    word-break:keep-all;
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    color: rgb(126, 126, 126);
+    font-size: 10px;
+}
+.manage-bottom-novel-left-text-data-click {
+    margin-right: 13px;
+}
+
+
+.manage-bottom-novel-right {
+    display: flex;
+    width: 10%;
+    height: 100%;
+    justify-content: flex-end;
+    flex-direction: row;
+}
+.manage-bottom-novel-right-btn {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* background-color: #00a1d6; */
+}
+.manage-bottom-novel-right-btn a {
+    background-color: #fff;
+    font-size: 14px;
+    color:#222;
+    padding: 5px 20px;
+    border-radius: 5px;
+    border:1px solid #ccc;
+}
+.manage-bottom-novel-right-btn a:hover {
+    text-decoration: none;
+    opacity: 0.8;
+}
+
+
+.manage-bottom-novel-center {
+    display: flex;
+    width: 15%;
+    height: 100%;
+    justify-content: flex-end;
+    flex-direction: row;
+}
+.manage-bottom-novel-center-btn {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* background-color: #00a1d6; */
+}
+.manage-bottom-novel-center-btn a {
+    background-color: #00a1d6;
+    font-size: 14px;
+    color:white;
+    padding: 5px 20px;
+    border-radius: 5px;
+    border:1px solid #ccc;
+}
+.manage-bottom-novel-center-btn a:hover{
+    text-decoration: none;
+    opacity: 0.8;
+}
+
+
+
+
+/* 投递作品 */
+.upload {
+    display: flex;
+    background-color: white;
+    width: 100%;
+    height: 100vh;
+    justify-content: center;
+}
+.upload-btn {
+    text-align: center;
+    justify-content: center;
+    color: white;
+    background-color: rgba(20,153,237,1);
+    margin-top: 280px;
+    width: 348px;
+    height:72px;
+    font-size: 25px;
+    padding-top: 15px;
+    border-radius: 20px;
+    cursor: pointer;
+}
+.upload-btn :hover {
+    background-color: rgba(20,153,237,0.5);
+}
+.upload-btn-img {
+    position: absolute;
+    top: 150px;
+    left: 860px;
+    width: 250px;
+    height: 313px;
+    z-index: 100;
+    cursor: default;
+    background: url(../img/vidol-upload.png) no-repeat;
+    background-size: 100% 100%;
+}
